@@ -38,4 +38,7 @@ const auth = require('./routes/authroute');
 app.use(auth);
 
 
+const admin = require('./routes/adminroute');
+app.use('/admin',admin);
+
 module.exports = app;

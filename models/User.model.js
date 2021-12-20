@@ -23,9 +23,11 @@ const userSchema = new Schema(
       require: [true, "Password is required."],
     },
     role: {
+      require: [true, "Role is required. (ADMIN, CLIENT)"],
         type: String,
         enum: ['CLIENT', 'ADMIN'],
-        default: 'CLIENT'
+        default: 'CLIENT',
+        
       },
     lastConnection: Date,
   },

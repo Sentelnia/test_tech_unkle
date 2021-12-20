@@ -1,54 +1,7 @@
 const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
-
 const Token = require("../utils/token.js")
 
-//HandleError
-const handleErrorSignup = (err) => {
-  let errors = {
-    email: "",
-    name: "",
-    password: "",
-  };
-
-  //duplicate error code
-  if (err.code === 11000) {
-    errors.email = "that email is already registered";
-    return errors;
-  }
-
-  //validation errors
-  if (err.message.includes("User validation failed")) {
-    Object.values(err.errors).forEach(({ properties }) => {
-      errors[properties.path] = properties.message;
-    });
-  }
-
-  return errors;
-};
-//-------------------------//
-
-module.exports.postSignup = (req, res) => {
-  const { email, name, password } = req.body;
-  img = `${process.env.NOM_DOMAINE}/uploads/avatar/avatarprofilplaceholder.png1637315234134.png`;
-
-  const salt = bcrypt.genSaltSync(10);
-  const hashPass = bcrypt.hashSync(password, salt);
-
-  User.create({
-    email,
-    name,
-    password: hashPass,
-  })
-    .then((user) => {
-    
-      res.status(201).json({ message: "Merci pour votre inscription" ,user});
-    })
-    .catch((err) => {
-      const errors = handleErrorSignup(err);
-      res.status(400).json({ errors });
-    });
-};
 
 module.exports.postLogin = (req, res, next) => {
   const { email, password } = req.body;

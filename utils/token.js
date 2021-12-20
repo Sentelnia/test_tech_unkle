@@ -6,7 +6,7 @@ const SECRET_TOKEN = process.env.SECRET_TOKEN;
 
 module.exports.createToken = (id) => {
     return jwt.sign({ id }, process.env.SECRET_TOKEN, {
-      expiresIn: "5d",
+      expiresIn: "1d",
     });
   };
   

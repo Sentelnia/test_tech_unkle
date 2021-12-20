@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authControllers');
-const { requireAuth, checkRoleAdmin, checkUser } = require('../middleware/authMiddleware');
+const { requireAuth,checkUser } = require('../middleware/authMiddleware');
 
 
-//Inscription , connection et déconnection
-router.post("/signup", authController.postSignup);
+//Connection et déconnection
+
 router.post("/login",authController.postLogin);
 router.get('/logout', requireAuth , checkUser, authController.logout);
 
