@@ -5,10 +5,10 @@ const { Schema, model } = require("mongoose");
 
 const optionSchema = new Schema(
   {
-    titleOption: {
+    identifiant: {
       type: String,
-      required: [true, "Title is required."],
-      unique: [true, "Title is unique."],
+      required: [true, "Identifiant is required."],
+      unique: [true, "Identifiant is unique."],
     },
     description: {
         type: String,

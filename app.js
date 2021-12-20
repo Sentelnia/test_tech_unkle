@@ -44,6 +44,8 @@ app.use('/admin',admin);
 const option = require('./routes/optionroute');
 app.use('/option',option);
 
+const contrat = require('./routes/contratroute');
+app.use('/contrat',contrat);
 
 
 module.exports = app;

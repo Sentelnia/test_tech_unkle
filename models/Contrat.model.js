@@ -7,7 +7,7 @@ const contratSchema = new Schema(
   {
     number: {
       type: Number,
-      required: [true, "Number is required."]
+      unique: [true , "number is unique"]
     },
     startDate: {
       type: Date,
@@ -15,19 +15,20 @@ const contratSchema = new Schema(
     },
     endDate: {
       type: Date,
-      require: [true, "EndDate is required."],
     },
     status: {
-      require: [true, "Status is required. (ADMIN, CLIENT)"],
         type: String,
-        enum: ['En cours de validation', 'Validé'],
-        default: 'En cours de validation',
+        enum: ['pending', 'active', 'finished'],
+        default: 'pending',
       },
     options: 
         [
-            { type: Schema.Types.Object, ref: "Options" }
-           
+            { type: Schema.Types.Object, ref: "Options" }    
         ],
+    clients:
+    [
+        {type: Schema.Types.Object, ref: "User" }
+    ]
     
   },
   {

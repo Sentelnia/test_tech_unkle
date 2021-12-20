@@ -5,13 +5,13 @@ const Option = require("../models/Option.model");
 //HandleError
 const handleErrorOption = (err) => {
     let errors = {
-      titleOption: "",
+        identifiant: "",
       description: ""
     };
   
     //duplicate error code
     if (err.code === 11000) {
-      errors.titleOption = "that title is already registered";
+      errors.identifiant = "that identifiant is already registered";
       return errors;
     }
   
@@ -26,15 +26,15 @@ const handleErrorOption = (err) => {
   };
 
 module.exports.postOption = (req, res, next) => {
-    const { titleOption, description} = req.body;
+    const { identifiant, description} = req.body;
     
     Option.create({
-      titleOption,
+        identifiant,
       description
     })
       .then((option) => {
 
-        res.status(201).json({ message: `L'option ${option.titleOption} a bien été créé`});
+        res.status(201).json({ message: `L'option ${option.identifiant} a bien été créé`});
       })
       .catch((err) => {
         const errors = handleErrorOption(err);
