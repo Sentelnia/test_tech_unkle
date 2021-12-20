@@ -34,6 +34,8 @@ const index = require('./routes/index');
 app.use('/', index);
 
 
+const auth = require('./routes/authroute');
+app.use(auth);
 
 
 module.exports = app;
