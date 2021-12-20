@@ -45,10 +45,6 @@ const handleErrorSignup = (err) => {
 
 module.exports.postSignup = (req, res) => {
   const { email, name, role, password } = req.body;
-  img = `${process.env.NOM_DOMAINE}/uploads/avatar/avatarprofilplaceholder.png1637315234134.png`;
-
-  const salt = bcrypt.genSaltSync(10);
-  const hashPass = bcrypt.hashSync(password, salt);
 
   User.create({
     email,

@@ -41,4 +41,9 @@ app.use(auth);
 const admin = require('./routes/adminroute');
 app.use('/admin',admin);
 
+const option = require('./routes/optionroute');
+app.use('/option',option);
+
+
+
 module.exports = app;
