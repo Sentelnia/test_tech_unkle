@@ -20,6 +20,16 @@ Me contacter pour les infos du .env (pour la db)
 
 [Workspace Postman](https://www.postman.com/galactic-spaceship-200020/workspace/test-technique-unkle/overview)
 
+Compte admin :
+
+```
+{
+  "email":"luigi@gmail.com",
+  "password":"Motdepasse123"
+}
+
+```
+
 # Authentification
 (Pensez à bien mettre le token dans Authorization Bearer pour passer la protection des routes)
 
