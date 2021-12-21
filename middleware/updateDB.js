@@ -11,8 +11,7 @@ const updateDbContrat = (req, res, next) => {
         { endDate: { $lt: new Date() } },
         { $set: { status: "finished" } }
       )
-        .then((contrats) => {
-          console.log(contrats);
+        .then(() => {
           next();
         })
         .catch((err) => next(err));
@@ -32,8 +31,7 @@ const updateDbContratClient = (req, res, next) => {
         { endDate: { $lt: new Date() }, clients: userId },
         { $set: { status: "finished" } }
       )
-        .then((contrats) => {
-          console.log(contrats);
+        .then(() => {
           next();
         })
         .catch((err) => next(err));
