@@ -21,6 +21,14 @@ const contratSchema = new Schema(
         enum: ['pending', 'active', 'finished'],
         default: 'pending',
       },
+    resiliation : {
+      type: Boolean,
+      default : false
+    },
+    resiliationDate : {
+      type:Date,
+      default : Date.now()
+    },
     options: 
         [
             { type: Schema.Types.Object, ref: "Options" }    

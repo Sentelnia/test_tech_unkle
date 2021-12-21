@@ -11,7 +11,7 @@ const requireAuth = (req, res, next) => {
    
       if (err) {
    
-        res.status(401).json({ message: "accès non autorisé" });
+        res.status(403).json({ message: "accès non autorisé" });
       } else {
        
         next();

@@ -1,5 +1,7 @@
 const User = require("../models/User.model");
+const Contrat = require("../models/Contrat.model");
 const bcrypt = require("bcryptjs");
+const ObjectId = require('mongodb').ObjectId; 
 
 //Listes des utilsateurs
 module.exports.getUsers = (req, res, next) => {
@@ -78,3 +80,49 @@ module.exports.deleteUser = (req, res, next) => {
       });
   };
   
+
+  
+  // Liste des contrat coté admin
+
+module.exports.getContratAdmin= (req, res, next) => {
+
+    Contrat.find()
+      .then((foundContrats) => {
+        if (!foundContrats) {
+          res.status(403).json({message:"Contrat no found"});
+          return;
+        }
+        console.log(foundContrats)
+        let contrats = [];
+
+        foundContrats.forEach((contrat) => {
+            contrats.push(contrat)
+        })
+
+        res.status(200).json({contrats});
+      })
+      .catch((err) => next(err));
+  };
+
+  // Liste des contrat coté admin par client
+
+module.exports.getContratAdminClient = (req, res, next) => {
+    const userId = req.params.userId;
+    console.log(userId)
+    Contrat.find({clients:new ObjectId(userId)})
+      .then((foundContrats) => {
+        if (!foundContrats) {
+          res.status(403).json({message:"Contrat no found"});
+          return;
+        }
+        console.log(foundContrats)
+        let contrats = [];
+
+        foundContrats.forEach((contrat) => {
+            contrats.push(contrat)
+        })
+
+        res.status(200).json({contrats});
+      })
+      .catch((err) => next(err));
+  };

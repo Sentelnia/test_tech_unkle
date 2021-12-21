@@ -30,7 +30,7 @@ module.exports.postOption = (req, res, next) => {
     
     Option.create({
         identifiant,
-      description
+        description
     })
       .then((option) => {
 
@@ -57,3 +57,22 @@ module.exports.postOption = (req, res, next) => {
           res.status(400).json(err);
         });
     };
+
+    // Obtenir la liste des options possibles
+
+    module.exports.getOption = (req, res, next) => {
+        
+        Option.find()
+        .sort({identifiant:1})
+          .then((foundOption) => {
+              //Aucune options trouvés
+                foundOption.length === 0 && res.status(400).json({message : "Aucune options n'a été trouvé"})
+
+                  res.status(200).json({
+                    foundOption
+                  });
+                })
+          .catch((err) => {
+            res.status(400).json(err);
+          });
+      };

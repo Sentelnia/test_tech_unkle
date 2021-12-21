@@ -10,6 +10,8 @@ router.post("/",requireAuth, checkUser , checkRoleAdmin, optionController.postOp
 //Supression d'une option
 router.delete('/:optionId', requireAuth , checkUser,  checkRoleAdmin,  optionController.deleteOption);
 
+//Liste des options
+router.get("/",requireAuth, checkUser , optionController.getOption)
 
 
 module.exports = router;
