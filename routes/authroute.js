@@ -5,15 +5,14 @@ const { requireAuth,checkUser } = require('../middleware/authMiddleware');
 
 
 //Connection et déconnection
-
 router.post("/login",authController.postLogin);
 router.get('/logout', requireAuth , checkUser, authController.logout);
 
 //détails
-router.get('/user', requireAuth , checkUser, authController.getUser);
+router.get('/', requireAuth , checkUser, authController.getUser);
 
 //Modifications
-router.put('/user', requireAuth , checkUser, authController.putUser);
+router.put('/', requireAuth , checkUser, authController.putUser);
 router.post('/modifpass', requireAuth , checkUser, authController.PostModifPass);
 
 module.exports = router;

@@ -76,10 +76,7 @@ module.exports.getUser = (req, res, next) => {
         return;
       }
 
-      const user = {
-        name: foundUser.name
-      };
-      res.status(200).json({ user });
+      res.status(200).json({ foundUser });
     })
     .catch((err) => next(err));
 };

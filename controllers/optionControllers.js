@@ -50,7 +50,7 @@ module.exports.postOption = (req, res, next) => {
       Option.findByIdAndRemove(optionId)
         .then((foundOption) => {
                 res.status(200).json({
-                  message: `L'option ${foundOption.title} a bien été supprimé`
+                  message: `L'option ${foundOption.identifiant} a bien été supprimé`
                 });
               })
         .catch((err) => {

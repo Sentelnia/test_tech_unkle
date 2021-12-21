@@ -46,6 +46,9 @@ const handleErrorSignup = (err) => {
 module.exports.postSignup = (req, res) => {
   const { email, name, role, password } = req.body;
 
+  const salt = bcrypt.genSaltSync(10);
+  const hashPass = bcrypt.hashSync(password, salt);
+
   User.create({
     email,
     name,
@@ -92,7 +95,7 @@ module.exports.getContratAdmin = (req, res, next) => {
         res.status(403).json({ message: "Contrat no found" });
         return;
       }
-      console.log(foundContrats);
+     
       let contrats = [];
 
       foundContrats.forEach((contrat) => {
@@ -117,7 +120,7 @@ module.exports.getContratAdminClient = (req, res, next) => {
         res.status(403).json({ message: "Contrat no found" });
         return;
       }
-      console.log(foundContrats);
+      
       let contrats = [];
 
       foundContrats.forEach((contrat) => {
