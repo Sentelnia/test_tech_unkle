@@ -29,11 +29,7 @@ const userSchema = new Schema(
         default: 'CLIENT',
         
       },
-    contrats : [
-      
-        { type: Schema.Types.Object, ref: "Contrat" }
-      
-    ],
+  
     lastConnection: Date,
   },
   {
