@@ -18,7 +18,7 @@ Me contacter pour les infos du .env (pour la db)
 
 ## POSTMAN
 
-[Workspace Postman](https://app.getpostman.com/join-team?invite_code=1c5ed46b97bd5b56fd76027390dd385f&ws=678e0617-3eb2-4258-9fe0-974df3a4b629)
+[Workspace Postman](https://www.postman.com/galactic-spaceship-200020/workspace/test-technique-unkle/overview)
 
 # Authentification
 (Pensez à bien mettre le token dans Authorization Bearer pour passer la protection des routes)
